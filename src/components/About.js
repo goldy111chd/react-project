@@ -1,6 +1,12 @@
 import React from 'react';
 
 const About=()=>{
+  if(localStorage.token){
+    
+  }
+  else{
+    window.location.href = '/login';
+  }
   return(
     <>
     <section className="section-a">
