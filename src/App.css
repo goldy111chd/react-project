@@ -87,8 +87,15 @@ span.psw {
 }
 
 /* End Css */
-
-
+.btns{
+  width: 100px;
+  background: #ee6e73;
+}
+.btnD{
+  width: 100px;
+  background: blue;
+  margin: 5px;
+}
 /* curd page css */
 
 .names-ul{display:block;margin:0;padding:0;}
@@ -129,7 +136,6 @@ form.update-form {
 td {
     font-size: 20px;
     color: #864e21;
-    padding: 9px 50px;
     border: 1px solid #d7d7d7;
     font-family: inherit;
     font-weight: 500;
@@ -144,6 +150,10 @@ tr:nth-child(1){
     font-family: initial;
     text-align: center;
     font-weight: 700;
+}
+.main-heading{
+  background: #b5b5b5;
+  padding: 15px;
 }
 .hover:hover{
   background: #c8dedb;

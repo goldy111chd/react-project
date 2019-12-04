@@ -7,13 +7,14 @@ import Crud from './components/Crud';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import{BrowserRouter,Route}from 'react-router-dom'
+import Home from './pages/Home';
 class App extends React.Component {
   render(){
   return (
     <BrowserRouter>
   
       <Navbar />
-      <Route  exact path="/" component={About} />
+      <Route  exact path="/" component={Home} />
       <Route  path="/About" component={About} />
       <Route  path="/Apidatashow" component={Apidatashow} />
       <Route  path="/Crud" component={Crud} />
