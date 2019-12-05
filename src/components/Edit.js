@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const Edit = ({id}) => { 
+const Edit = ({id, getEmployees}) => { 
 const [name, setName] = useState("")
 const [age, setAge] = useState("")
 const [salary, setSalary] = useState("")
@@ -18,12 +18,12 @@ const data ={
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
-            
         }
     })
         .then(response => response.json())
         .then(res => {
             console.log("Edit Response", res)
+            getEmployees()
         })
       }
 

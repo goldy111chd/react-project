@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react'
 import Edit from '../components/Edit';
-
 const Home = () => {
     const [employees, setEmployees] = useState(null)
     const [showForm, setShowForm] = useState(false)
@@ -21,11 +20,21 @@ const Home = () => {
     setShowForm(!showForm)
     setId(i)
   }
+
+  const onDelete = (id)=> {
+    fetch(`http://dummy.restapiexample.com/api/v1/delete/${id}`,
+    {
+        method: 'DELETE',
+
+
+}).then(res=>{return res.json()}).then(res=>{console.log("Delete Response",res); getEmployees()})
+}
+
 console.log("employees",employees)
     return (
-        <div className="container">
+         <div className="container">
          <div className="row">
-        <div className="col-md-8">
+         <div className="col-md-8">
             <table>
             {employees && employees.map((item)=>  
             <tr>
@@ -33,17 +42,17 @@ console.log("employees",employees)
             <td>{item.employee_salary}</td>
             <td>{item.employee_age}</td>
             <button className="btns" onClick={()=>handleShowForm(item.id)}>Update</button>
-            <button className="btnD" >Delete</button>
+            <button className="btnD" onClick={()=>onDelete(item.id)} >Delete</button>
            </tr> 
             ) 
             } 
             </table>
             </div>
             <div className="col-md-4">
-            {showForm === true ? <Edit id={id} />: null}
+            {showForm === true ? <Edit id={id} getEmployees={getEmployees} />: null}
             </div>
             </div>
-        </div>
+            </div>
 
     )
 }
