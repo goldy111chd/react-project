@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const Edit = ({id, getEmployees}) => { 
+const Edit = ({id, getEmployees, setShowForm}) => { 
 const [name, setName] = useState("")
 const [age, setAge] = useState("")
 const [salary, setSalary] = useState("")
@@ -24,12 +24,13 @@ const data ={
         .then(res => {
             console.log("Edit Response", res)
             getEmployees()
+            setShowForm(false)
         })
       }
 
           return(
           <form className="main-heading" onSubmit={handlesubmit}>
-           id:  {id}
+           id:{id}
           <div className="form-group">
             <label for="pwd">Name:</label>
             <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} id="pwd" placeholder="name" name="fn" />

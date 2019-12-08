@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
+import Model  from "./Model";
 import { ENAMETOOLONG } from 'constants';
 import { emptyTypeAnnotation } from '@babel/types';
 class Apidatashow extends Component {
@@ -25,37 +26,48 @@ fetch('https://reqres.in/api/users/?results=500')
 <div class="td" key={list.data}>
         {list.email}
       </div>
-)
+		)
     });
 	
 	  let  f_name = data1.data.map((list)=>{return ( 
 <div class="td" key={list.data}>
         {list.first_name}
       </div>
-)
+		)
     });
 	
 		  let l_name = data1.data.map((list)=>{return ( 
 <div class="td" key={list.data}>
        {list.last_name}
       </div>
-)
+	)
     });
 	
 			  let Avatar = data1.data.map((list)=>{return ( 
 <div class="td" key={list.data}>
         <img src={list.avatar}/>
       </div>
-)
+		)
     });
 	
-				  let lists = data1.data.map((list, index)=>{return ( 
+				  let lists = data1.data.map((list, index)=>{
+					  
+					 var model = "model"+index;
+					 return ( 
 <tr key={list.data}>
-        <td><Link to={`/details/${index+1}`}>{list.email}</Link></td>
+       
+		<td>
+			
+			<a href="" data-toggle="modal" data-target={"#"+model}>
+
+			<Link to={`/details/${index+1}`}>{list.email}</Link></a></td>
+			
         <td>{list.first_name}</td>
         <td>{list.last_name}</td>
         <td><img src={list.avatar}/></td>
+		<Model id={model}  email={list.email}  firstname={list.first_name} lastname={list.last_name}  avatar={list.avatar} />
       </tr>
+	  
 )
     });
 
@@ -69,14 +81,15 @@ fetch('https://reqres.in/api/users/?results=500')
   render() {
     return ( 
 		<div className="container">
-		<table>
-	<tr>
+		<table className="shadow">
+	<tr className="text-center">
 	<th>Email</th>
 	<th>First Name</th>
 	<th>Last Last</th>
 	<th>Avtar</th>
 </tr>	
 	{this.state.lists}
+	
 	</table>
 
 

@@ -33,9 +33,10 @@ class Login extends Component {
           {
             if(res.token){
               localStorage.setItem('token', res.token);
-              this.props.history.push('/about')
-              window.location.reload()
               this.setState({ alert: <div className="alert alert-success">Login Successfully</div> })
+              this.props.history.push('/')
+              window.location.reload()
+              
               alert("Login Successfully")
             }
             else{
@@ -51,8 +52,6 @@ class Login extends Component {
     render() {
     return(
       <form action="/" class="main-head">
-      
-    
       <div class="container">
         <label for="uname"><b>Username</b></label>
         <input type='email' className="login-p" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} name='email' placeholder='email' />

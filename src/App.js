@@ -12,8 +12,7 @@ class App extends React.Component {
   render(){
   return (
     <BrowserRouter>
-  
-      <Navbar />
+    <Navbar />
       <Route  exact path="/" component={Home} />
       <Route  path="/About" component={About} />
       <Route  path="/Apidatashow" component={Apidatashow} />
